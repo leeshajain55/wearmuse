@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFF8F0;
+    color: #1A1A2E;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+  }
+  ::selection {
+    background-color: #FF6B9D;
+    color: white;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #FFF8F0; }
+  ::-webkit-scrollbar-thumb { background: #FF6B9D; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #E84D80; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-primary-dark hover:shadow-glow-pink active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-dark font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-secondary-dark active:scale-95;
+  }
+  .btn-outline {
+    @apply border-2 border-dark text-dark font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-dark hover:text-white active:scale-95;
+  }
+  .btn-accent {
+    @apply bg-accent text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-accent-dark hover:shadow-glow-purple active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card transition-all duration-300 hover:shadow-card-hover;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 rounded-2xl;
+  }
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-sale {
+    @apply badge bg-danger text-white;
+  }
+  .badge-new {
+    @apply badge bg-success text-white;
+  }
+  .badge-trending {
+    @apply badge bg-accent text-white;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200 bg-white font-body;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-heading font-bold text-dark;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+}
+
+/* Mobile bottom nav spacing */
+@media (max-width: 768px) {
+  main { padding-bottom: 70px; }
+}
