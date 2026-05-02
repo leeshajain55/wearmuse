@@ -4,9 +4,9 @@ import Providers from '@/components/Providers';
 import LayoutShell from '@/components/layout/LayoutShell';
 
 export const metadata = {
-  title: "StyleVerse — Gen Z Fashion Destination",
-  description: "Discover the trendiest fashion for Gen Z. Shop hoodies, sneakers, accessories & more at StyleVerse. Bold styles, unbeatable prices.",
-  keywords: "fashion, gen z, trendy, clothing, shoes, accessories, online shopping",
+  title: "WearMuse — Gen Z Fashion Destination",
+  description: "Discover the trendiest fashion for Gen Z. Bold styles, unbeatable prices.",
+  keywords: "fashion, gen z, trendy, clothing, accessories, online shopping",
 };
 
 export default function RootLayout({ children }) {

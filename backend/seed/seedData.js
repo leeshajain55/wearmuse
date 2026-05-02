@@ -35,7 +35,7 @@ const seedDB = async () => {
     console.log('👤 Creating users...');
     const adminUser = await User.create({
       name: 'Admin',
-      email: 'admin@styleverse.com',
+      email: 'admin@WearMuse.com',
       password: 'admin123',
       role: 'admin',
     });
@@ -121,7 +121,7 @@ const seedDB = async () => {
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         colors: ['White', 'Black', 'Grey', 'Navy', 'Olive'],
         stock: 100,
-        brand: 'StyleVerse',
+        brand: 'WearMuse',
         tags: ['bestseller'],
         reviews: [],
         rating: { average: 0, count: 0 },
@@ -308,7 +308,7 @@ const seedDB = async () => {
         sizes: ['One Size'],
         colors: ['Black', 'Tan', 'White', 'Pink'],
         stock: 35,
-        brand: 'StyleVerse',
+        brand: 'WearMuse',
         tags: ['bestseller'],
         reviews: [],
         rating: { average: 0, count: 0 },
@@ -469,7 +469,7 @@ const seedDB = async () => {
     console.log(`   📁 ${createdCategories.length} categories`);
     console.log(`   🛍️  ${products.length} products`);
     console.log(`   👤 2 users (admin + test)`);
-    console.log('\n   Admin: admin@styleverse.com / admin123');
+    console.log('\n   Admin: admin@WearMuse.com / admin123');
     console.log('   User:  user@test.com / test123');
     process.exit(0);
   } catch (error) {

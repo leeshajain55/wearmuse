@@ -96,7 +96,7 @@ function LoginContent() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href={`/register?redirect=${redirect}`} className="text-primary font-semibold hover:underline">
             Sign Up
           </Link>

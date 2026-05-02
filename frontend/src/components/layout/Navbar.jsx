@@ -59,7 +59,7 @@ export default function Navbar() {
             {/* Left: Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <span className="text-2xl md:text-3xl font-heading font-black gradient-text tracking-tight">
-                StyleVerse
+                WearMuse
               </span>
             </Link>
 

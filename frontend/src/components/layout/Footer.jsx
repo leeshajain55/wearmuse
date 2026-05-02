@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="bg-gradient-to-r from-primary to-accent py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-2xl font-heading font-bold text-white">Join the StyleVerse Fam 💜</h3>
+            <h3 className="text-2xl font-heading font-bold text-white">Join the WearMuse Fam 💜</h3>
             <p className="text-white/80 mt-1">Get 15% off your first order + early access to drops</p>
           </div>
           <form className="flex w-full md:w-auto" onSubmit={(e) => e.preventDefault()}>
@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <h2 className="text-3xl font-heading font-black gradient-text mb-4">StyleVerse</h2>
+            <h2 className="text-3xl font-heading font-black gradient-text mb-4">WearMuse</h2>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your Gen Z fashion destination. Bold styles, unbeatable prices, and vibes that match your energy. ✨
             </p>
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FiMail className="w-4 h-4 text-primary" />
-                hello@styleverse.com
+                hello@WearMuse.com
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FiPhone className="w-4 h-4 text-primary" />
@@ -101,7 +101,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs">© {currentYear} StyleVerse. All rights reserved. Made with 💜</p>
+          <p className="text-gray-500 text-xs">© {currentYear} WearMuse. All rights reserved. Made with 💜</p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-gray-500 hover:text-gray-300 text-xs">Privacy Policy</a>
             <a href="#" className="text-gray-500 hover:text-gray-300 text-xs">Terms of Service</a>
