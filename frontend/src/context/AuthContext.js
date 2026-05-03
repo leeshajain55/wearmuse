@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
     if (token && savedUser) {
       setUser(JSON.parse(savedUser));
       // Verify token is still valid
-      api.get('/auth/me').then(res => {
+      api.get('/api/auth/me').then(res => {
         const u = res.data.user;
         setUser({ id: u._id, name: u.name, email: u.email, role: u.role });
       }).catch(() => {
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const res = await api.post('/auth/login', { email, password });
+    const res = await api.post('/api/auth/login', { email, password });
     localStorage.setItem('token', res.data.token);
     localStorage.setItem('user', JSON.stringify(res.data.user));
     setUser(res.data.user);
@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
   };
 
   const register = async (name, email, password) => {
-    const res = await api.post('/auth/register', { name, email, password });
+    const res = await api.post('/api/auth/register', { name, email, password });
     localStorage.setItem('token', res.data.token);
     localStorage.setItem('user', JSON.stringify(res.data.user));
     setUser(res.data.user);
