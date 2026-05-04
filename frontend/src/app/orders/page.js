@@ -24,8 +24,8 @@ export default function OrdersPage() {
   useEffect(() => {
     if (!authLoading && !user) { router.push('/login?redirect=/orders'); return; }
     if (user) {
-      api.get('/orders').then(res => setOrders(res.data.orders || []))
-        .catch(() => {}).finally(() => setLoading(false));
+      api.get('/api/orders').then(res => setOrders(res.data.orders || []))
+        .catch(() => { }).finally(() => setLoading(false));
     }
   }, [user, authLoading, router]);
 
@@ -100,9 +100,8 @@ export default function OrdersPage() {
                             const isCurrent = order.status === s;
                             return (
                               <div key={s} className="flex items-center gap-2 flex-1">
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
-                                  isActive ? 'bg-primary text-white' : 'bg-gray-200 text-gray-400'
-                                } ${isCurrent ? 'ring-4 ring-primary/20' : ''}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${isActive ? 'bg-primary text-white' : 'bg-gray-200 text-gray-400'
+                                  } ${isCurrent ? 'ring-4 ring-primary/20' : ''}`}>
                                   {isActive ? <FiCheck className="w-4 h-4" /> : i + 1}
                                 </div>
                                 {i < 2 && <div className={`flex-1 h-1 rounded-full ${isActive ? 'bg-primary' : 'bg-gray-200'}`} />}

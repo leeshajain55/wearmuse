@@ -29,7 +29,7 @@ function ProductsContent() {
   }, [searchParams]);
 
   useEffect(() => {
-    api.get('/categories').then(res => setCategories(res.data.categories || [])).catch(() => {});
+    api.get('/api/categories').then(res => setCategories(res.data.categories || [])).catch(() => { });
   }, []);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ function ProductsContent() {
           if (cat) params.set('category', cat._id);
         }
 
-        const res = await api.get(`/products?${params.toString()}`);
+        const res = await api.get(`/api/products?${params.toString()}`);
         setProducts(res.data.products || []);
         setPagination(res.data.pagination || { page: 1, pages: 1, total: 0 });
       } catch (err) {
@@ -85,10 +85,10 @@ function ProductsContent() {
           <h1 className="text-3xl sm:text-4xl font-heading font-black mb-3">
             {searchQuery ? `Results for "${searchQuery}"` :
               selectedCategory ? selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1) :
-              selectedTag === 'new-arrival' ? 'New Arrivals' :
-              selectedTag === 'trending' ? 'Trending Now' :
-              selectedTag === 'bestseller' ? 'Best Sellers' :
-              'All Products'}
+                selectedTag === 'new-arrival' ? 'New Arrivals' :
+                  selectedTag === 'trending' ? 'Trending Now' :
+                    selectedTag === 'bestseller' ? 'Best Sellers' :
+                      'All Products'}
           </h1>
           <p className="text-white/60 text-sm">{pagination.total} products found</p>
         </div>
@@ -156,9 +156,8 @@ function ProductsContent() {
                 <div className="space-y-1.5">
                   <button
                     onClick={() => { setSelectedCategory(''); setPage(1); }}
-                    className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      !selectedCategory ? 'bg-primary/10 text-primary' : 'hover:bg-gray-50'
-                    }`}
+                    className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${!selectedCategory ? 'bg-primary/10 text-primary' : 'hover:bg-gray-50'
+                      }`}
                   >
                     All Categories
                   </button>
@@ -166,9 +165,8 @@ function ProductsContent() {
                     <button
                       key={cat._id}
                       onClick={() => { setSelectedCategory(cat.slug || cat.name.toLowerCase()); setPage(1); }}
-                      className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        selectedCategory === (cat.slug || cat.name.toLowerCase()) ? 'bg-primary/10 text-primary' : 'hover:bg-gray-50'
-                      }`}
+                      className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === (cat.slug || cat.name.toLowerCase()) ? 'bg-primary/10 text-primary' : 'hover:bg-gray-50'
+                        }`}
                     >
                       {cat.name}
                     </button>
@@ -190,9 +188,8 @@ function ProductsContent() {
                     <button
                       key={tag.value}
                       onClick={() => { setSelectedTag(tag.value); setPage(1); }}
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                        selectedTag === tag.value ? 'bg-primary text-white' : 'bg-gray-100 hover:bg-gray-200 text-dark'
-                      }`}
+                      className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${selectedTag === tag.value ? 'bg-primary text-white' : 'bg-gray-100 hover:bg-gray-200 text-dark'
+                        }`}
                     >
                       {tag.label}
                     </button>
@@ -266,9 +263,8 @@ function ProductsContent() {
                       <button
                         key={i}
                         onClick={() => setPage(i + 1)}
-                        className={`w-10 h-10 rounded-xl font-semibold text-sm transition-all ${
-                          page === i + 1 ? 'bg-primary text-white shadow-glow-pink' : 'bg-white hover:bg-gray-50 shadow-card'
-                        }`}
+                        className={`w-10 h-10 rounded-xl font-semibold text-sm transition-all ${page === i + 1 ? 'bg-primary text-white shadow-glow-pink' : 'bg-white hover:bg-gray-50 shadow-card'
+                          }`}
                       >
                         {i + 1}
                       </button>

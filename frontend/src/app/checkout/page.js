@@ -29,14 +29,14 @@ export default function CheckoutPage() {
     if (!user) { router.push('/login?redirect=/checkout'); return; }
     if (cart.length === 0 && !orderPlaced) { router.push('/cart'); return; }
     // Fetch user addresses
-    api.get('/auth/me').then(res => {
+    api.get('/api/auth/me').then(res => {
       const addrs = res.data.user?.addresses || [];
       setSavedAddresses(addrs);
       if (addrs.length > 0) {
         setSelectedAddressIdx(0);
         setAddress(addrs[0]);
       }
-    }).catch(() => {});
+    }).catch(() => { });
   }, [user, cart.length, orderPlaced, router]);
 
   const deliveryCharge = cartTotal >= 999 ? 0 : 99;
@@ -59,7 +59,7 @@ export default function CheckoutPage() {
         price: item.product.price,
       }));
 
-      const res = await api.post('/orders', {
+      const res = await api.post('/api/orders', {
         items,
         shippingAddress: address,
         totalAmount: total,
@@ -112,9 +112,8 @@ export default function CheckoutPage() {
             <div key={s.num} className="flex items-center gap-2 flex-1">
               <button
                 onClick={() => setStep(s.num)}
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
-                  step >= s.num ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'
-                }`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${step >= s.num ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'
+                  }`}
               >
                 {step > s.num ? <FiCheck className="w-4 h-4" /> : s.num}
               </button>
@@ -142,9 +141,8 @@ export default function CheckoutPage() {
                         <button
                           key={idx}
                           onClick={() => { setSelectedAddressIdx(idx); setAddress(addr); }}
-                          className={`p-4 rounded-xl border-2 text-left text-sm transition-all ${
-                            selectedAddressIdx === idx ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/50'
-                          }`}
+                          className={`p-4 rounded-xl border-2 text-left text-sm transition-all ${selectedAddressIdx === idx ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/50'
+                            }`}
                         >
                           {addr.street}, {addr.city}, {addr.state} - {addr.zip}
                         </button>
@@ -197,9 +195,8 @@ export default function CheckoutPage() {
                     <button
                       key={method.value}
                       onClick={() => setPaymentMethod(method.value)}
-                      className={`w-full p-4 rounded-xl border-2 text-left flex items-center gap-4 transition-all ${
-                        paymentMethod === method.value ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/50'
-                      }`}
+                      className={`w-full p-4 rounded-xl border-2 text-left flex items-center gap-4 transition-all ${paymentMethod === method.value ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/50'
+                        }`}
                     >
                       <span className="text-2xl">{method.icon}</span>
                       <div>

@@ -24,8 +24,8 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const [prodRes, catRes] = await Promise.all([
-          api.get('/products?limit=8'),
-          api.get('/categories'),
+          api.get('/api/products?limit=8'),
+          api.get('/api/categories'),
         ]);
         setProducts(prodRes.data.products || []);
         setCategories(catRes.data.categories || []);

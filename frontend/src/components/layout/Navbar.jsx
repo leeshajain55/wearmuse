@@ -35,11 +35,11 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/products?tag=new-arrival', label: 'New In' },
-    { href: '/products?category=men', label: 'Men' },
+    //{ href: '/products?category=men', label: 'Men' },
     { href: '/products?category=women', label: 'Women' },
-    { href: '/products?category=kids', label: 'Kids' },
+    //{ href: '/products?category=kids', label: 'Kids' },
     { href: '/products?category=accessories', label: 'Accessories' },
-    { href: '/products?category=footwear', label: 'Footwear' },
+    //{ href: '/products?category=footwear', label: 'Footwear' },
   ];
 
   return (

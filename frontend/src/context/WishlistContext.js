@@ -14,7 +14,7 @@ export function WishlistProvider({ children }) {
     if (user) {
       try {
         setLoading(true);
-        const res = await api.get('/wishlist');
+        const res = await api.get('/api/wishlist');
         setWishlist(res.data.wishlist || []);
       } catch (err) {
         console.error('Failed to fetch wishlist:', err);
@@ -31,7 +31,7 @@ export function WishlistProvider({ children }) {
   const toggleWishlist = async (productId) => {
     if (!user) return false;
     try {
-      const res = await api.post('/wishlist', { productId });
+      const res = await api.post('/api/wishlist', { productId });
       setWishlist(res.data.wishlist || []);
       return true;
     } catch (err) {

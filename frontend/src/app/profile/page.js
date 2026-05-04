@@ -22,9 +22,9 @@ export default function ProfilePage() {
   useEffect(() => {
     if (!authLoading && !user) { router.push('/login?redirect=/profile'); return; }
     if (user) {
-      api.get('/auth/me').then(res => {
+      api.get('/api/auth/me').then(res => {
         setUserData(res.data.user);
-      }).catch(() => {}).finally(() => setLoading(false));
+      }).catch(() => { }).finally(() => setLoading(false));
     }
   }, [user, authLoading, router]);
 
@@ -39,8 +39,8 @@ export default function ProfilePage() {
       } else {
         addresses.push(addressForm);
       }
-      await api.put('/auth/addresses', { addresses });
-      const res = await api.get('/auth/me');
+      await api.put('/api/auth/addresses', { addresses });
+      const res = await api.get('/api/auth/me');
       setUserData(res.data.user);
       setShowAddressForm(false);
       setEditingIdx(-1);
@@ -55,8 +55,8 @@ export default function ProfilePage() {
     try {
       const addresses = [...(userData.addresses || [])];
       addresses.splice(idx, 1);
-      await api.put('/auth/addresses', { addresses });
-      const res = await api.get('/auth/me');
+      await api.put('/api/auth/addresses', { addresses });
+      const res = await api.get('/api/auth/me');
       setUserData(res.data.user);
       toast.success('Address deleted');
     } catch (err) {
@@ -135,9 +135,8 @@ export default function ProfilePage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${
-                activeTab === tab.id ? 'bg-primary text-white shadow-glow-pink' : 'text-gray-500 hover:text-dark'
-              }`}
+              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${activeTab === tab.id ? 'bg-primary text-white shadow-glow-pink' : 'text-gray-500 hover:text-dark'
+                }`}
             >
               <tab.icon className="w-4 h-4" /> {tab.label}
             </button>
